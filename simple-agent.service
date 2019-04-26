@@ -4,7 +4,7 @@ After=bluetooth.target
 
 [Service]
 Type=simple
-ExecStart=/usr/local/sbin/simple-agent -c NoInputNoOutput
+ExecStart=/usr/local/sbin/bluetooth-audio-receiver/simple-agent -c NoInputNoOutput
 ExecStartPre=/usr/bin/bluetoothctl -- power on
 ExecStartPost=/usr/bin/bluetoothctl -- discoverable on
 Restart=always
