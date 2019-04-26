@@ -1,0 +1,14 @@
+[Unit]
+Description=Bluetooth custom simple-agent
+After=bluetooth.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/sbin/simple-agent -c NoInputNoOutput
+ExecStartPre=/usr/bin/bluetoothctl -- power on
+ExecStartPost=/usr/bin/bluetoothctl -- discoverable on
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=default.target
